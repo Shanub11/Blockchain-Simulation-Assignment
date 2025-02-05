@@ -13,7 +13,7 @@ class Block:
         self.hash = self.compute_hash()
         
     def compute_hash(self):
-        """Generate SHA-256 hash for the block based on its content."""
+        #Generate SHA-256 hash for the block based on its content.
         block_data = json.dumps({
             "index": self.index,
             "timestamp": self.timestamp,
@@ -24,7 +24,7 @@ class Block:
         return hashlib.sha256(block_data.encode()).hexdigest()
     
     def mine_block(self):
-        """Perform Proof-of-Work by finding a hash with a certain number of leading zeros."""
+        #Perform Proof-of-Work by finding a hash with a certain number of leading zeros.
         while not self.hash.startswith('0' * self.difficulty):
             self.nonce += 1
             self.hash = self.compute_hash()
@@ -36,11 +36,11 @@ class Blockchain:
         self.chain = [self.create_genesis_block()]
        
     def create_genesis_block(self):
-        """Create the first block in the blockchain."""
+        #Create the first block in the blockchain.
         return Block(0, ["Genesis Block"], "0", self.difficulty)
 
     def add_block(self):
-        """Add a new block with user input transactions to the blockchain after mining."""
+        #Add a new block with user input transactions to the blockchain after mining.
         transactions = []
         num_transactions = int(input("Enter the number of transactions for the new block: "))
         
@@ -66,6 +66,8 @@ class Blockchain:
                 return False  # Block linkage is broken
         
         return True
+
+    
 
     def print_blockchain(self):
         # Print the blockchain with details of each block.
