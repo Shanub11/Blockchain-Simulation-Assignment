@@ -1,4 +1,3 @@
-# Blockchain-Simulation-Assignment
 import hashlib
 from datetime import datetime
 import json
@@ -68,13 +67,6 @@ class Blockchain:
         
         return True
 
-    def tamper_block(self, index, new_transactions):
-       # Simulate tampering by modifying block data.
-        if index < len(self.chain):
-            self.chain[index].transactions = new_transactions
-            self.chain[index].hash = self.chain[index].compute_hash()
-            print(f"Block {index} tampered!")
-
     def print_blockchain(self):
         # Print the blockchain with details of each block.
         for block in self.chain:
@@ -121,3 +113,11 @@ def run_blockchain():
         print("Is Blockchain Valid?", blockchain.is_chain_valid())  # Checking blockchain validity
     
 run_blockchain()
+        
+
+       
+           
+        
+         
+
+
